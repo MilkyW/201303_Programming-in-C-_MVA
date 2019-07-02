@@ -114,5 +114,18 @@ internal - only in this assembly(solution in VS)
 **When creating a generic class, consider:** Which type to generalize; What constraints to apply; Whether to create generic base classes; Whether to create generic interfaces.
 Generic methods may also be created within non-generic classes.
 
+```cs
+int count = 1;
+
+// the value of count is copied and boxed
+object countObject = count;
+
+count += 1; // countObject is still 1
+
+// the value of countObject (1) is unboxed
+// and copied to count
+count = (int)countObject;
+```
+
 **Boxing/Unboxing:** Boxing is the act of converting a value type to a reference type. Unboxing is the reverse, requires a cast. Boxing/Unboxing copies the value. Boxing is computationally expensive - avoid repetition. Generics help avoid these scenarios.
 
