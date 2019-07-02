@@ -71,3 +71,48 @@ What is a Managed Language? depend on services provided by a runtime environment
 
 **Dynamics:** Instructs the compiler to ignore type checking at compile-time and defers it until runtime; Simplifies interaction with COM interfaces/un-typed, external objects
 
+## 02-Constructing Complex Types, Object Interfaces and Inheritance
+
+**Classes and Structs:** defines the template for an object(instance); class(reference) & struct(value), imply memory strategies
+
+**Structs:** instances of the type are small, is commonly embedded in another type,  logically represent a single value which doesn’t change (immutable), is rarely “boxed”; have performance benefits in computational intensive applications
+
+**Classes can optionally be declared as:**
+
+static - cannot be instantiated, stateless, only a library of activities without the cost of instantiating it
+
+abstract - incomplete class, cannot be instantiated; must be completed in a derived class
+
+sealed - cannot be inherited from, all classes can be inherited unless marked as sealed
+
+partial - one class spread in more than one files
+
+**Method can optionally be declared as:**
+
+private - only by this class, by default
+
+protected - only by this class and its derived classes
+
+public - by any class
+
+internal - only in this assembly(solution in VS)
+
+**Properties:** shorthand get & set instructs the compiler to create an infrastructure(backing variable/store) to manipulate and store the value of the variable; can put access modifier like “private” before get & set
+
+**Signatures:** defaults can use parameter name to bypass(doesn’t care about order)
+
+**Events:** the way for the class or object to talk back to the developer(not invoked by the developer), raise an event and handle it; publish and subscribe pattern; EventHandler & EventArgs
+
+**Object Interfaces and Inheritance:** Interface is a contract promising the implementation and Class implements the functionality.
+
+**Inheritance:** virtual methods have implementations and can be overridden in derived class
+
+**Creating Object Instances:** When a class or struct is created, a constructor is called. Unless a class is static, the compiler generates a default constructor if not supplied in code. Constructors are invoked by using the new keyword. Constructors may require parameters. More than one constructor can be defined. Constructors can be chained together. Base class constructors are always called first.
+
+**Generics:** introduce to the .NET Framework the concept of type parameters; make it possible to design classes an methods that defer type specifications until the class or method is declared; one of the most common situations for using generics is when a strongly-typed collection is required - lists, hash tables, queues, etc.
+
+**When creating a generic class, consider:** Which type to generalize; What constraints to apply; Whether to create generic base classes; Whether to create generic interfaces.
+Generic methods may also be created within non-generic classes.
+
+**Boxing/Unboxing:** Boxing is the act of converting a value type to a reference type. Unboxing is the reverse, requires a cast. Boxing/Unboxing copies the value. Boxing is computationally expensive - avoid repetition. Generics help avoid these scenarios.
+
